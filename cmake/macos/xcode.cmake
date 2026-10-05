@@ -18,6 +18,10 @@ else()
   set(CMAKE_XCODE_ATTRIBUTE_PROVISIONING_PROFILE_NAME "${OBS_PROVISIONING_PROFILE}")
 endif()
 
+# Developer ID provisioning profile for the macOS camera extension; required to
+# embed one in the export on macOS 26.7+, see #13995. Only used when set.
+set(OBS_CAMERA_PROVISIONING_PROFILE "" CACHE STRING "OBS provisioning profile name for the macOS camera extension")
+
 if(NOT OBS_CODESIGN_TEAM)
   # Switch to manual codesigning if no codesigning team is provided
   set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_STYLE Manual)

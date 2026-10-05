@@ -121,6 +121,12 @@ function(set_target_properties_obs target)
             ${target}
             PROPERTIES XCODE_ATTRIBUTE_PROVISIONING_PROFILE_SPECIFIER "${OBS_PROVISIONING_PROFILE}"
           )
+          set(camera_profile_entry "")
+          if(OBS_CAMERA_PROVISIONING_PROFILE)
+            string(CONCAT camera_profile_entry
+              "\n\t\t<key>com.obsproject.obs-studio.mac-camera-extension</key>"
+              "\n\t\t<string>${OBS_CAMERA_PROVISIONING_PROFILE}</string>")
+          endif()
           configure_file(cmake/macos/exportOptions-extension.plist.in ${CMAKE_BINARY_DIR}/exportOptions.plist)
         else()
           set(entitlements_file "${CMAKE_CURRENT_SOURCE_DIR}/cmake/macos/entitlements.plist")

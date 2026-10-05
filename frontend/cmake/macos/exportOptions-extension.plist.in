@@ -7,7 +7,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>com.obsproject.obs-studio</key>
-		<string>${OBS_PROVISIONING_PROFILE}</string>
+		<string>${OBS_PROVISIONING_PROFILE}</string>${camera_profile_entry}
 	</dict>
 	<key>signingStyle</key>
 	<string>manual</string>
